@@ -1,4 +1,4 @@
-package com.picpaysimplificado.domain.repositories;
+package com.picpaysimplificado.repositories;
 
 import java.util.Optional;
 
