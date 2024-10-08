@@ -1,20 +1,13 @@
 package com.picpaysimplificado.services;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
 import com.picpaysimplificado.domain.transaction.Transaction;
 import com.picpaysimplificado.domain.user.User;
-import com.picpaysimplificado.dtos.NotificationDTO;
 import com.picpaysimplificado.dtos.TransactionDTO;
 import com.picpaysimplificado.repositories.TransactionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 public class TransactionService {
@@ -25,7 +18,7 @@ public class TransactionService {
 	private TransactionRepository transactionRepository;
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private AuthorizationService authorizationService;
 	
 	@Autowired
 	private NotificationService notificationService;
@@ -36,7 +29,7 @@ public class TransactionService {
 		
 		userService.validateTransaction(sender, transaction.value());
 		
-		boolean isAuthorized=this.authorizeTransaction(sender, transaction.value());
+		boolean isAuthorized=this.authorizationService.authorizeTransaction(sender, transaction.value());
 		if(!isAuthorized) {
 			throw new Exception("Transação não autorizada");
 		}
@@ -58,17 +51,5 @@ public class TransactionService {
 		this.notificationService.sendNotification(receiver, "Transação recebida com sucesso");
 		
 		return newTransaction;
-	}
-	
-	public boolean authorizeTransaction(User sender, BigDecimal value) {
-		// ideal variavel de ambiente pra endpoint...
-		/*
-		ResponseEntity<Map> authorizationResponse = restTemplate.getForEntity("https://util.devi.tools/api/v2/authorize", Map.class);
-	
-		if(authorizationResponse.getStatusCode() == HttpStatus.OK) {
-			String status=(String) authorizationResponse.getBody().get("status");
-			return "success".equalsIgnoreCase(status);
-		} else return false;*/
-		return true;
 	}
 }
