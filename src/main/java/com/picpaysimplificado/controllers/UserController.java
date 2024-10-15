@@ -15,13 +15,18 @@ import com.picpaysimplificado.domain.user.User;
 import com.picpaysimplificado.dtos.UserDTO;
 import com.picpaysimplificado.services.UserService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController()
 @RequestMapping("/users")
+@Tag(name = "User")
+//@Hidden
 public class UserController {
 	@Autowired
 	private UserService userService;
 
 	@PostMapping
+	//@Hidden
 	public ResponseEntity<User> createUser(@RequestBody UserDTO user) {
 		User newUser = userService.createUser(user);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);

@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.picpaysimplificado.domain.transaction.Transaction;
 import com.picpaysimplificado.dtos.TransactionDTO;
+import com.picpaysimplificado.openapi.TransactionControllerOpenAPI;
 import com.picpaysimplificado.services.TransactionService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/transactions")
-public class TransactionController {
+@Tag(name = "Transaction")
+public class TransactionController implements TransactionControllerOpenAPI {
 	@Autowired
 	private TransactionService transactionService;
 	
