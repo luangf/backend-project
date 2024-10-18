@@ -1,6 +1,6 @@
-Projeto que realizei para aprendizado com auxilio de um video da Fernanda Kipper sobre um desafio back end.
+Project I carried out for learning with the help of a tutorial by Fernanda Kipper about a back end challenge.
 
-Funcionalidade principal da aplicação: A aplicação tem o intuito de depositar e realizar transferências de dinheiro entre usuários. Temos 2 tipos de usuários, os comuns e lojistas, ambos têm carteira com dinheiro e realizam transferências entre eles.
+Main functionality of the application: The application aims to deposit and transfer money between users. We have 2 types of users, ordinary users and retailers, both have wallets with money and make transfers between them.
 
 ## Technologies:
 * Java
@@ -8,7 +8,8 @@ Funcionalidade principal da aplicação: A aplicação tem o intuito de deposita
 * RESTful API
 * JUnit
 * Mockito
-* OpenAPI 3 - Springdoc library for Swagger UI
 * Postman
 
-Estou implementando várias funcionalidades além do pedido para treinar minhas skills
+## I added some features like:
+* OpenAPI 3 - Springdoc library for Swagger UI
+* Docker
