@@ -1,0 +1,6 @@
+services:
+ container-nice:
+  build: .
+  image: image-nice:tag-nice-2.0
+  ports:
+   - 8080:8080
