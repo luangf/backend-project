@@ -1,0 +1,23 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4.2.1
+
+      - uses: docker/build-push-action@v6.9.0
+        name: Build and push Docker images :D
+        with:
+          context: .
+          file: .
+          push: true
+          tags: |
+            luan4343543/repository-docker-hub-test:v1
+            luan4343543/repository-docker-hub-test:latest
+    
