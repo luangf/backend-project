@@ -25,6 +25,6 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            luan4343543/repository-docker-hub-test:v1
+            luan4343543/repository-docker-hub-test:v${{github.run_number}}
             luan4343543/repository-docker-hub-test:latest
     
