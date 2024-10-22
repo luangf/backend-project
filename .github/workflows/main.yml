@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v6.9.0
         with:
           context: .
-          file: .
+          file: Dockerfile
           push: true
           tags: |
             luan4343543/repository-docker-hub-test:v1
