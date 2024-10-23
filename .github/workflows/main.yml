@@ -14,6 +14,18 @@ jobs:
       - name: See the code :D
         uses: actions/checkout@v4.2.1
 
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.4.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: |
+          mvn clean
+          mvn -B package --file pom.xml
+          
       - name: Authenticate to Docker Hub
         uses: docker/login-action@v3.3.0
         with:
