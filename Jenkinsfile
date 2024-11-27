@@ -3,12 +3,13 @@ pipeline{
 
     stages{
         stage('Build'){
-            agent{
-                docker { image 'maven:3.8.8-eclipse-temurin-17' }
-            }
             steps{
                 echo 'Building project...'
-                sh "mvn clean install"
+                script{
+                    docker.image('maven:3.8.8-eclipse-temurin-17').inside{
+                        sh 'mvn clean install'
+                    }
+                }
             }
         }
     }
