@@ -13,7 +13,7 @@ Main functionality of the application: The application aims to deposit and trans
 ## I added some features like:
 * OpenAPI 3 - Springdoc library for Swagger UI
 * Docker
-* CI/CD
+* CI/CD with Jenkins and GitHub Actions
 
 ## How to use with docker compose:
 Have docker installed and running
